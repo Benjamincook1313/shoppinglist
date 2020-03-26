@@ -13,7 +13,7 @@ function App(){
       <hi>Shopping list</hi>
       <ol>{list}</ol>
       <div>
-        <input onChange={e => setNewItem(e.target.value)}/>
+        <input value={newItem} onChange={e => setNewItem(e.target.value)}/>
         <button onClick={e => setItems([...items, newItem])/setNewItem('')}>Add</button>
       </div>
     </div>
