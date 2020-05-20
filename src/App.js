@@ -5,12 +5,37 @@ function App(){
 
   const [newItem, setNewItem] = useState('')
   const [items, setItems] = useState(['Apples', 'Bananas', 'Cherries', 'Tomatoes', 'Potatoes'])
+  const [grabbed, setGrabbed] = useState(null)
 
-  let list = items.map(item => <li className='item'>{item}</li>)
+  const handleMove = (i) => {
+    let newOrder = [...items]
+    let temp = newOrder[i]
+    if(grabbed){
+      newOrder[i] = newOrder[grabbed]
+      newOrder[grabbed] = temp
+      setGrabbed(i)
+      setItems(newOrder)
+    }
+  };
+
+
+  let list = items.map((item, i) => 
+    <li 
+      className='item' 
+      key={i} 
+      cursor='pointer' 
+      onMouseDown={() => setGrabbed(i)} 
+      onMouseUp={() => setGrabbed(null)}
+      onMouseOver={() => handleMove(i)}
+    >
+      {item}
+    </li>)
+
+  console.log(grabbed)
 
   return (
     <div className='App'>
-      <hi>Shopping list</hi>
+      <h1>Shopping list</h1>
       <ol>{list}</ol>
       <div>
         <input value={newItem} onChange={e => setNewItem(e.target.value)}/>
