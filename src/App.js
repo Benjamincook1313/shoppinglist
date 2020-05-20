@@ -6,7 +6,7 @@ function App(){
   const [newItem, setNewItem] = useState('')
   const [items, setItems] = useState(['Apples', 'Bananas', 'Cherries', 'Tomatoes', 'Potatoes'])
 
-  let list = items.map(item => <li>{item}</li>)
+  let list = items.map(item => <li className='item'>{item}</li>)
 
   return (
     <div className='App'>

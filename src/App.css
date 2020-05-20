@@ -6,4 +6,11 @@
   align-items: center;
   /* justify-content: center; */
 }
+.item {
+  border: 1px solid black;
+  padding: 2px;
+  text-align: center;
+  border-radius: 3px;
+  margin: 2px;
+}
 
