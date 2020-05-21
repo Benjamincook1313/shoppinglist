@@ -15,4 +15,10 @@
   width: 180px;
   cursor: move;
 }
+.listItem{
+  display: flex;
+}
+.quantity{
+  width: 20px;
+}
 
