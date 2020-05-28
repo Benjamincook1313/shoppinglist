@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './App.css'
 
 function Items(props){
 
@@ -6,22 +7,29 @@ function Items(props){
 
   const [quantity, setQuantity] = useState('1')
 
+  const handleIncrease = () => {
+    setQuantity(quantity+1)
+  };
+
+  const handleDecrease = () => {
+    setQuantity(quantity-1)
+  };
+
   return(
-    <div>
+    <div className='item'>
       <li 
         className='item' 
-        key={i} 
         cursor='pointer' 
-        onMouseDown={() => setGrabbed(i)} 
-        onMouseUp={() => setGrabbed(null)}
-        onMouseOver={() => handleMove(i)}
+        onMouseDown={() => props.setGrabbed(props.key)} 
+        onMouseUp={() => props.setGrabbed(null)}
+        onMouseOver={() => handleMove(props.key)}
       >
-        {item}
+        {props.Items[props.Key]}
       </li>
-      <button onClick={() => handleDecrease(i)}>-</button>
-      <input className='quantity' type='num' />
-      <button onClick={() => handleIncrease(i)}>+</button>
-      <button style={{margin: '5px'}} className='deleteItem'>x</button>
+      <button onClick={() => handleDecrease()}>-</button>
+      <input className='quantity' value={quantity} readOnly/>
+      <button onClick={() => handleIncrease(props.key)}>+</button>
+      <button style={{margin: '5px'}} className='deleteItem'>remove</button>
     </div>
   )
 };

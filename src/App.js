@@ -19,21 +19,13 @@ function App(){
     }
   };
 
-  const handleIncrease = (i) => {
-
-  };
-  const handleDecrease = () => {
-
-  };
-
-
   let list = items.map((item, i) => 
-    <div>
-      <Items handleMove={() => handleMove(i)}/>
+    <div key={i}>
+      <Items handleMove={() => handleMove(i)} setGrabbed={() => setGrabbed()} Items={items} Key={i}/>
     </div>
   )
 
-  console.log(grabbed)
+  // console.log(grabbed)
 
   return (
     <div className='App'>

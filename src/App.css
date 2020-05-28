@@ -9,11 +9,12 @@
 .item {
   border: 1px solid black;
   padding: 2px;
-  text-align: center;
+  /* text-align: center; */
   border-radius: 3px;
   margin: 2px;
-  width: 180px;
+  /* width: 280px; */
   cursor: move;
+  /* display: flex; */
 }
 .listItem{
   display: flex;
