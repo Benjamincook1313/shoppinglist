@@ -19,9 +19,20 @@ function App(){
     }
   };
 
+  const deleteItem = (i) => {
+    const newList = [...items]
+    newList.splice(i, 1)
+    setItems(newList)
+  };
+
   let list = items.map((item, i) => 
     <div key={i}>
-      <Items handleMove={() => handleMove(i)} setGrabbed={() => setGrabbed()} Items={items} Key={i}/>
+      <Items 
+        deleteItem={() => deleteItem(i)}
+        handleMove={() => handleMove(i)} 
+        setGrabbed={() => setGrabbed(i)} 
+        Items={items} 
+        Key={i}/>
     </div>
   )
 

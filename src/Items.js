@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import './App.css'
 
 function Items(props){
+  // const handleMove = props.handleMove()
 
-  const handleMove = props.handleMove()
-
-  const [quantity, setQuantity] = useState('1')
+  const [quantity, setQuantity] = useState(1)
 
   const handleIncrease = () => {
     setQuantity(quantity+1)
@@ -20,16 +19,16 @@ function Items(props){
       <li 
         className='item' 
         cursor='pointer' 
-        onMouseDown={() => props.setGrabbed(props.key)} 
-        onMouseUp={() => props.setGrabbed(null)}
-        onMouseOver={() => handleMove(props.key)}
+        // onMouseDown={() => props.setGrabbed(props.Key)} 
+        // onMouseUp={() => props.setGrabbed(null)}
+        // onMouseOver={() => handleMove(props.Key)}
       >
         {props.Items[props.Key]}
       </li>
       <button onClick={() => handleDecrease()}>-</button>
       <input className='quantity' value={quantity} readOnly/>
-      <button onClick={() => handleIncrease(props.key)}>+</button>
-      <button style={{margin: '5px'}} className='deleteItem'>remove</button>
+      <button onClick={() => handleIncrease(props.Key)}>+</button>
+      <button style={{margin: '5px'}} onClick={() => props.deleteItem(props.Key)}>remove</button>
     </div>
   )
 };
